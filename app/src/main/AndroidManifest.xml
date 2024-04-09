@@ -37,7 +37,7 @@
             android:name=".activity.tai_khoan"
             android:exported="false" />
         <activity
-            android:name=".activity.chitiet_quan"
+            android:name=".activity.dang_nhap"
             android:exported="false" />
         <activity
             android:name=".activity.goi_y"
@@ -76,7 +76,7 @@
             android:exported="true" />
 
         <activity
-            android:name=".activity.dang_nhap"
+            android:name=".activity.chitiet_quan"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

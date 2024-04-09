@@ -30,9 +30,6 @@ public class dang_ky extends AppCompatActivity {
     private String encodedImage;
     private PreferenceManager preferenceManager;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +37,6 @@ public class dang_ky extends AppCompatActivity {
         setContentView(binding.getRoot());
         preferenceManager = new PreferenceManager(getApplicationContext());
         setListener();
-
-        //
-
     }
 
     private final ActivityResultLauncher<Intent> pickImage = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -61,7 +55,8 @@ public class dang_ky extends AppCompatActivity {
             }
         }
     });
-    private String encodeImage (Bitmap bitmap) {
+
+    private String encodeImage(Bitmap bitmap) {
         int previewWidth = 150;
         int previewHeight = bitmap.getHeight() * previewWidth / bitmap.getWidth();
         Bitmap previewBitmap = Bitmap.createScaledBitmap(bitmap, previewWidth, previewHeight, false);
@@ -75,8 +70,7 @@ public class dang_ky extends AppCompatActivity {
         if (isLoading) {
             binding.btnRegister.setVisibility(View.INVISIBLE);
             binding.progressBar.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             binding.progressBar.setVisibility(View.INVISIBLE);
             binding.btnRegister.setVisibility(View.VISIBLE);
         }
@@ -113,33 +107,25 @@ public class dang_ky extends AppCompatActivity {
         if (encodedImage == null) {
             showToast("Select image");
             return false;
-        }
-
-        else if (binding.edtNameUser.getText().toString().trim().isEmpty()) {
+        } else if (binding.edtNameUser.getText().toString().trim().isEmpty()) {
             showToast("Enter name");
             return false;
-        }
-        else if (binding.edtEmail.getText().toString().trim().isEmpty()) {
+        } else if (binding.edtEmail.getText().toString().trim().isEmpty()) {
             showToast("Enter email");
             return false;
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(binding.edtEmail.getText().toString()).matches()) {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(binding.edtEmail.getText().toString()).matches()) {
             showToast("Enter valid email");
             return false;
-        }
-        else if (binding.edtPasswd.getText().toString().trim().isEmpty()) {
+        } else if (binding.edtPasswd.getText().toString().trim().isEmpty()) {
             showToast("Enter password");
             return false;
-        }
-        else if (binding.edtRewritePasswd.getText().toString().trim().isEmpty()) {
+        } else if (binding.edtRewritePasswd.getText().toString().trim().isEmpty()) {
             showToast("Confirm your password");
             return false;
-        }
-        else if (!binding.edtPasswd.getText().toString().equals(binding.edtRewritePasswd.getText().toString())) {
+        } else if (!binding.edtPasswd.getText().toString().equals(binding.edtRewritePasswd.getText().toString())) {
             showToast("Password & confirm password must be same");
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }

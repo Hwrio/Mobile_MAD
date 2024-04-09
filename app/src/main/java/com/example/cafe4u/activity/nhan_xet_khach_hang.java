@@ -25,11 +25,14 @@ public class nhan_xet_khach_hang extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nhan_xet_khach_hang);
+
+
         cmt_recycle = findViewById(R.id.cmt_recycle);
         cmtAdapter = new CommentAdapter(getList());
         LinearLayoutManager manager = new LinearLayoutManager(this);
         cmt_recycle.setLayoutManager(manager);
         cmt_recycle.setAdapter(cmtAdapter);
+
         // Quay trở lại
         imgbtn_quaylai = findViewById(R.id.back_arr);
         imgbtn_quaylai.setOnClickListener(new View.OnClickListener() {
