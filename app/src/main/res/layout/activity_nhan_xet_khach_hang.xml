@@ -49,97 +49,80 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.cafe4u.ultility.RadioBtn_TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/Classify"
+    <RadioGroup
+        android:id="@+id/classify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/line1">
 
-        <TableRow>
+        <RadioButton
+            android:id="@+id/btn_cmt_1star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:text="1 sao"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <RadioButton
-                android:id="@+id/btn_cmt_all"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:text="Tất cả"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+        <RadioButton
+            android:id="@+id/btn_cmt_2star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:text="2 sao"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <RadioButton
-                android:id="@+id/btn_cmt_1star"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:text="1 sao"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+        <RadioButton
+            android:id="@+id/btn_cmt_3star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:text="3 sao"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <RadioButton
-                android:id="@+id/btn_cmt_2star"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:text="2 sao"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </TableRow>
+        <RadioButton
+            android:id="@+id/btn_cmt_4star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="5dp"
+            android:text="4 sao"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-        <TableRow>
-
-            <RadioButton
-                android:id="@+id/btn_cmt_3star"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:text="3 sao"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <RadioButton
-                android:id="@+id/btn_cmt_4star"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingHorizontal="5dp"
-                android:text="4 sao"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <RadioButton
-                android:id="@+id/btn_cmt_5star"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingHorizontal="5dp"
-                android:text="5 sao"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </TableRow>
-
-    </com.example.cafe4u.ultility.RadioBtn_TableLayout>
+        <RadioButton
+            android:id="@+id/btn_cmt_5star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="5dp"
+            android:text="5 sao"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RadioGroup>
 
     <View
         android:id="@+id/line2"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/Classify" />
+        app:layout_constraintTop_toBottomOf="@id/classify" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cmt_recycle"
         android:layout_width="match_parent"
-        android:layout_height="594dp"
+        android:layout_height="653dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

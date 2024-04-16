@@ -2,7 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="ReviewActivity"/>
 
     <application
         android:allowBackup="true"
@@ -15,14 +25,14 @@
         android:theme="@style/Theme.Cafe4u"
         tools:targetApi="31">
         <activity
-            android:name=".activity.ShopDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.ChatActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activity.HomeChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.them_anh"
             android:exported="false" />
         <activity
             android:name=".activity.UsersActivity"
@@ -37,7 +47,10 @@
             android:name=".activity.tai_khoan"
             android:exported="false" />
         <activity
-            android:name=".activity.dang_nhap"
+            android:name=".activity.Send_Feedback"
+            android:exported="false" />
+        <activity
+            android:name=".activity.chitiet_quan"
             android:exported="false" />
         <activity
             android:name=".activity.goi_y"
@@ -70,13 +83,13 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCr61hM4OE0MY5jV2j9kZorHjTfq3N3QNA" />
+            android:value="AIzaSyB1r6qaenDLOvPeb0MC5pHPQZNrHkMBF9k" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:exported="true" />
 
         <activity
-            android:name=".activity.chitiet_quan"
+            android:name=".activity.dang_nhap"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
