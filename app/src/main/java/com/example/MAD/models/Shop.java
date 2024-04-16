@@ -3,12 +3,12 @@ package com.example.MAD.models;
 import com.google.firebase.firestore.GeoPoint;
 
 public class Shop {
-    private String id, name, address, commentId, imageShop, openTime, phoneNumber, style;
+    private String shopId, name, address, commentId, imageShop, openTime, phoneNumber, style;
     private int vote;
     private GeoPoint location;
 
-    public Shop(String id, String name, String address, String commentId, String imageShop, String openTime, String phoneNumber, String style, int vote, GeoPoint location) {
-        this.id = id;
+    public Shop(String shopId, String name, String address, String commentId, String imageShop, String openTime, String phoneNumber, String style, int vote, GeoPoint location) {
+        this.shopId = shopId;
         this.name = name;
         this.address = address;
         this.commentId = commentId;
@@ -21,12 +21,12 @@ public class Shop {
     }
     public Shop() {}
 
-    public String getId() {
-        return id;
+    public String getShopId() {
+        return shopId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setShopId(String shopId) {
+        this.shopId = shopId;
     }
 
     public String getName() {

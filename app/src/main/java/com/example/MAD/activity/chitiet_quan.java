@@ -34,7 +34,7 @@ public class chitiet_quan extends AppCompatActivity {
     private ImageButton btn_QuayLai, btn_yeuThich, imgbtn_write_cmt;
     private Button btn_seeComment;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
-    ;
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
     private String shopID;
     private TextView nameShop, styleShop, addressShop, openShop, contactShop;
     private RatingBar ratingShop;
@@ -52,7 +52,6 @@ public class chitiet_quan extends AppCompatActivity {
 
     public void getShop() {
         shopID = getIntent().getStringExtra("shopId");
-
         database.collection("CafeShop").document(shopID).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -69,8 +68,10 @@ public class chitiet_quan extends AppCompatActivity {
     }
 
     public void displayShopDetail(Shop shop) {
+        shopID = getIntent().getStringExtra("shopId");
+
         nameShop = findViewById(R.id.Result_Layout_txt);
-        ratingShop = findViewById(R.id.ratingBar);
+//        ratingShop = findViewById(R.id.ratingBar);
         styleShop = findViewById(R.id.styleShop);
         addressShop = findViewById(R.id.addressShop);
         openShop = findViewById(R.id.timeShop);
@@ -83,29 +84,24 @@ public class chitiet_quan extends AppCompatActivity {
         addressShop.setText(shop.getAddress());
         openShop.setText(shop.getOpenTime());
         contactShop.setText(shop.getPhoneNumber());
-        Glide.with(this).
-                load(shop.getImageShop()).
-                into(imageShop);
-
+        database.collection("CafeShop").document(shopID).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String gsUrl = documentSnapshot.getString("imageShop");
+                StorageReference imageRef = storage.getReferenceFromUrl(gsUrl);
+                imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        String downloadUrl = uri.toString();
+                        Glide.with(chitiet_quan.this).
+                                load(downloadUrl).
+                                into(imageShop);
+                    }
+                });
+            }
+        });
     }
 
-//    public String ImageURL() {
-//        FirebaseStorage storage = FirebaseStorage.getInstance();
-//        StorageReference imageRef = storage.getReferenceFromUrl();
-//        imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//            @Override
-//            public void onSuccess(Uri uri) {
-//                // Got the download URL for 'images/coffee_shop_1.jpeg'
-//                String downloadUrl = uri.toString();
-//                Log.i("Firebase", "Download URL: " + downloadUrl);
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception exception) {
-//                // Handle any errors
-//            }
-//        });
-//    }
     public void addControl() {
         btn_QuayLai = findViewById(R.id.back_arr);
         imgbtn_write_cmt = findViewById(R.id.rate_btn);
